@@ -1,0 +1,26 @@
+<div class="converter-container" [formGroup]="currencyForm">
+  <ion-item lines="none">
+    <ion-select aria-label="currencies" placeholder="Base Currency" formControlName="base_currency">
+      <ion-select-option [value]="currency.code" *ngFor="let currency of (currencies$ | async)">{{ currency.name }} {{ '('+currency.symbol_native+')' }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-icon name="arrow-forward-outline" color="primary"></ion-icon>
+
+  <ion-item lines="none">
+    <ion-select aria-label="currencies" placeholder="Target Currency" formControlName="target_currency">
+      <ion-select-option [value]="currency.code" *ngFor="let currency of (currencies$ | async)">{{ currency.name }} {{ '('+currency.symbol_native+')' }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+</div>
+
+<div class="rate-content ion-margin-bottom" *ngIf="rate">
+  <p>1 {{ getControl['base_currency'].value }} = {{ rate }} {{ getControl['target_currency'].value }} </p>
+</div>
+
+<ion-button (click)="fetchRates()" expand="block">
+  Fetch Rate
+</ion-button>
+
+
+

@@ -1,0 +1,10 @@
+<ion-list lines="none">
+  <ion-list-header>
+    <ion-label>Recent Conversions</ion-label>
+  </ion-list-header>
+
+  <ion-item *ngFor="let conversion of recentConversions; trackBy: trackByFn">
+    <ion-label>{{ conversion.currencyFrom }} > {{ conversion.currency }}</ion-label>
+    <p>{{ conversion.amount }}</p>
+  </ion-item>
+</ion-list>

@@ -1,0 +1,12 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">
+      Currency Converter
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <app-converter (onRatesFetched)="saveRecentTransactions($event)"></app-converter>
+  <app-conversions-list [conversion]="conversion"></app-conversions-list>
+</ion-content>
